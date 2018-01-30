@@ -145,6 +145,15 @@ console.log(hotel);
 
  console log the object*/
 
+var car = {
+  make: 'BMW',
+  model: 'X5',
+  year: 2015,
+  doors: 4
+}
+
+console.log(car);
+
 /*14.  Declare a literal object named bigBox and set its value to be an empty object.
 
 Add a property named size and set it to a random number value between 0 and 50 (hint, use Math.something...)
@@ -152,6 +161,17 @@ Add a property named color and set it to any color.
 Add a property named contents and set it to be an empty array
 
 console log the object*/
+
+var bigBox = {};
+
+bigBox.size = function (){
+  return Math.floor(Math.random()*50);
+};
+bigBox.color = 'blue';
+bigBox.contents = [];
+
+console.log(bigBox);
+console.log(bigBox.size());
 
 /*15.  Declare a literal object named "colorMeBadd" with properties and values set to:
 
@@ -168,9 +188,38 @@ console log the object*/
 
 console log the object */ 
 
+var colorMeBadd = {
+  iro: [{
+    akai: 'red',
+    aoi: 'blue',
+    midori: 'green',
+    shiroi: 'white',
+    pinku: 'pink',
+    murasaki: 'puple'
+  }],
+  isJapanese: true
+}
+
+console.log(colorMeBadd);
+
 /*16. As the general manager for the DevLeague Prep Beer Pong Team, your job is to select the starting players from the roster array. Create two variables, Ateam and Bteam and assign each an empty array. You will then assigned players that have an even number index position to the Ateam and odd number index position to the Bteam. Let the games begin! Console log the results.*/
 
 var roster = ["Alex", "Laura", "Sami", "Jasmine", "Adam", "Dakota", "Jonathon", "Luther", "Kevin", "Vic"];
+var Ateam = [];
+var Bteam = [];
+
+function beerPong(members){
+  for (var i=0; i<members.length; i++){
+    if (i % 2 === 0){
+      Ateam.push(members[i]);
+    }else{
+      Bteam.push(members[i]);
+    }
+  }
+}
+beerPong(roster);
+console.log(Ateam);
+console.log(Bteam);
 
 /*17. Using the japanPrefectures array you created in exercise 5, create a for loop that iterates through this array and console logs the following message:
 
@@ -178,21 +227,106 @@ var roster = ["Alex", "Laura", "Sami", "Jasmine", "Adam", "Dakota", "Jonathon", 
 
 i.e. "The locaton at 0 is Tokyo."*/
 
+var japanPrefectures = ['Hokkaido', 'Fukushima', 'Tokyo', 'Kyoto', 'Okinawa'];
+
+for (var i = 0; i < japanPrefectures.length; i++){
+  console.log('The location at ' + i + ' is ' + japanPrefectures[i] + '.');
+}
+
 /*18. Declare a function named addUp.
 This function will take a number parameter and add up all the numbers from 1 to that number.
 The parameter will be any number from 1 to 88.*/
 
+
+function addUp(num){
+  var numSum = 0;  
+  for (var i = 0; i <= 88; i++){
+    numSum += i;
+    // console.log(numSum);
+  }
+  return numSum;
+}
+addUp();
+console.log(addUp());
+
 /*19. Declare a variable named oddNumbers and assign it to an empty array
 Use a for loop to add only odd numbers to an Array.  Add 30 odd numbers to the oddNumbers variable starting with the value of 1.*/
+
+var oddNumbers = [];
+
+for (var i=0; i<=60; i++){
+  if (i % 2 === 1){
+    oddNumbers += i + ',';
+  }
+}
+console.log(oddNumbers);
+// console.log(oddNumbers.length);
 
 /*20.  Declare a function named oldEnough.
 This function takes in a number parameter age and returns a Boolean value true or false if the age is lower than the minimum legal drinking age in the Antigua. Invoke this function by passing in a number value.  Google search Antigua's minimum drinking age to confirm the number value.  Store the return value to a variable named drinkinAlready and console log this variable*/
 
+function oldEnough(age){
+  if (age < 18){
+    return true;
+  }else{
+    return false;
+  }
+}
+var drinkinAlready = oldEnough(17);
+console.log(drinkinAlready);
+
 /*21. Declare a function named contentFiller which takes in a single parameter which will be an object.  Write a for loop that will put 5 random numbers between the values of 0 to 20 in the contents array in the bigBox object you created in exercise 14.  Console log the result.*/
 
+var bigBox = {};
+
+bigBox.size = function (){
+  return Math.floor(Math.random()*50);
+};
+bigBox.color = 'blue';
+bigBox.contents = [];
+
+// console.log(bigBox);
+
+function contentFiller(obj){
+  for (var i=0; i<5; i++){
+    var rand = Math.floor(Math.random()*20);
+    bigBox.contents.push(rand);
+  }
+  return obj;
+}
+contentFiller(bigBox);
+console.log(bigBox);
+console.log(bigBox.size());
+
 /*22.  Declare a function named firstReverse which takes a single parameter str.  This function will take a string parameter being passed in and return the string in reverse order.*/
+
+function firstReverse(str){
+  return str.split("").reverse().join("");
+}
+console.log(firstReverse('dog'));
 
 /*23. Declare a function named letterCap which takes a single parameter str. This function will capitalize the first letter of the string you pass in to invoke the function. 
 */
 
+function letterCap(str){
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+console.log(letterCap('dog'));
+
 /*24. Declare a function named longestWord which takes a single parameter str. This function will return the longest word in the string when you invoke this function.*/ 
+
+var sentence = 'Do or do not, there is no try.';
+// console.log(sentence);
+function longestWord(str){
+  var strSplit = str.split(' ');
+  // console.log(strSplit);
+  var str2 = '';
+  for (var i=0; i<strSplit.length; i++){
+    if (strSplit[i].length > str2.length){
+      str2 = strSplit[i];
+      // console.log(str2);
+    }
+  }
+  return str2;
+}
+console.log(longestWord(sentence));
