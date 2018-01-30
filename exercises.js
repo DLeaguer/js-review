@@ -75,8 +75,14 @@ console.log(india);
 Add another popular tourist attraction to the india variable from position 1 of the index.
 (hint, it is not the push() method). Console log the variable.*/
 
+india.unshift('Meenakshi Amman Temple');
+console.log(india);
+
 /*9. Removing the last element from an array.
 Using the same india variable, remove the last element from the array. Console log the variable. */
+
+india.pop();
+console.log(india);
 
 /*10. Removing an element from an array into a new array. 
 Removethe first two elements in the snacks array and return a new array.
@@ -84,11 +90,33 @@ Console log the new variable. */
 
 var snacks = ["peanut butter cup oreo", "birthday cake oreo", "banana split oreo", "watermelon oreo", "cookie dough oreo", "creamsicle oreo"];
 
+var newSnacks = [];
+function moveSnacks(snack){
+  // for (var i=0; i<2; i++){
+  //   snack.shift();
+  // }
+  // snack.splice(2);
+  snack.splice(0, 2);
+    return newSnacks.push(snack);
+}
+moveSnacks(snacks);
+console.log(newSnacks);
+
 /*11. Declare two variables with names of your choosing and use the triple comparison operator (===) to compare:
 a) two strings "Racecar" and "racecar"
 b) a string and a number "three" and 3
 
 console log each variable*/
+
+var compareA = 'Racecar';
+var compareB = 'racecar';
+var compareC = 'three';
+var compareD = 3;
+
+var compareAB = compareA === compareB;
+console.log(compareAB);
+var compareCD = compareC === compareD;
+console.log(compareCD);
 
 /*12.  Declare a literal object named "hotel" with properties and values set to:
 
@@ -98,6 +126,15 @@ console log each variable*/
     checkIn => null
 
  console log the object*/
+
+var hotel = {
+  name: 'Hilton',
+  rooms: 200,
+  pool: true,
+  checkIn: null
+}
+
+console.log(hotel);
 
 /*13.  Declare a literal object named "car" with properties and values set to:
 
